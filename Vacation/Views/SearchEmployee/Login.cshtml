@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Vacation.Models.Employee>
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Search employee - Only for admin</h1>
+<h4>Here you can search if a specific person has applied for a leave of absence and see those details</h4>
+
+<hr />
+
+
+@using (Html.BeginForm("AdminCheck", "SearchEmployee"))
+{
+    <table>
+        <tr>
+            <td>Enter email:</td>
+            <td><input type="text" name="email" /></td>
+        </tr>
+        <tr>
+            <td>Enter password:</td>
+            <td><input type="password" name="password" /></td>
+        </tr>
+    </table>
+    <br />
+    <button type="submit" class="buttonStyle">Login</button>
+}
+
+<br />
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}

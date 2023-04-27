@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Vacation.Models.VacationList>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Search vacation - Only for admin</h1>
+<h4>Here you can search for applications from a specific month aswell as se how many days
+    each person has applied for a leave of absence and what date the application was created on.
+</h4>
+<hr />
+
+<h7>
+    Select a month to get all the applications created that month:
+</h7>
+@using (Html.BeginForm("DetailsMonth", "SearchVacation"))
+{
+    @Html.DropDownList("month", ViewBag.VacationVBList as SelectList, "Select a month", new { @class = "form-control" })
+    <br />
+    <button type="submit" class="buttonStyle">Search</button>
+}
+<br />
+
+<h7>
+    Select an employee to see the amount of days applied for leave and more details:
+</h7>
+@using (Html.BeginForm("DetailsEmployee", "SearchVacation"))
+{
+    @Html.DropDownList("EmployeeId", ViewBag.EmployeeList as SelectList, "Select an employee", new { @class = "form-control" })
+    <br />
+    <button type="submit" class="buttonStyle">Search</button>
+
+}
+
+<br />
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}

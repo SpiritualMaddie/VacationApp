@@ -1,0 +1,49 @@
+﻿@model Vacation.Models.VacationList
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Leave of absence</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayName("Employee")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Employees.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VacationTypes.VacationTypeName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VacationTypes.VacationTypeName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VacCreated)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VacCreated)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+    </dl>
+</div>
+<br />
+<div>
+    <a class="btnA" asp-action="Edit" asp-route-id="@Model?.VacationListId">Edit</a> |
+    <a class="btnA" asp-action="Index">Back to List</a>
+</div>

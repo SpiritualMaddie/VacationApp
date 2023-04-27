@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Vacation.Models.VacationList>
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Search vacation - Only for admin</h1>
+<h4>
+    Here you can search for applications from a specific month aswell as se how many days
+    each person has applied for a leave of absence and what date the application was created on.
+</h4>
+<hr />
+
+
+@using (Html.BeginForm("AdminCheck", "SearchVacation"))
+{
+    <table>
+        <tr>
+            <td>Enter email:</td>
+            <td><input type="text" name="email" /></td>
+        </tr>
+        <tr>
+            <td>Enter password:</td>
+            <td><input type="password" name="password" /></td>
+        </tr>
+    </table>
+    <br />
+    <button type="submit" class="buttonStyle">Login</button>
+}
+
+<br />
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
