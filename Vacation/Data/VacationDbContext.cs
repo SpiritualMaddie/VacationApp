@@ -19,15 +19,16 @@ namespace Vacation.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            // Enable sensitive data logging
-            optionsBuilder.EnableSensitiveDataLogging();
-        }
+        // ONLY ACTIVATE IN DEVELOPMENT
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    // Enable sensitive data logging
+        //    optionsBuilder.EnableSensitiveDataLogging();
+        //}
 
         // Seed() - Adds a basic list of employees and types of leave at the start of the first start of the program
         // If there's already any data in the database then it wont add them again, so the data will only be added one time.
-        public void Seed()      // Protect somehow?
+        protected internal void Seed()
         {
             // If there's no employees in the db then these will be added
             if (!Employees.Any())
